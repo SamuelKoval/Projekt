@@ -3,7 +3,7 @@
 #pragma warning(disable: 4996)
 
 
-char o(char *pole)
+char o(char *pole)		//Najdenie najdlhsich usekov opakujuceho sa jedneho nukleoidu		
 {
 	int pomocna = 1, max = 0;
 	for (int i = 0; i < strlen(pole) - 1; i++)
@@ -38,7 +38,7 @@ char o(char *pole)
 	}
 }
 
-char l(char *pole)
+char l(char *pole)		//Vlozenie podsekvencie do originalnej DNA
 {
 	char c[10000];
 	int p = 0, r = 0, i = 0;
@@ -73,7 +73,7 @@ char l(char *pole)
 
 	printf("%s", pole);
 }
-char p(char *pole)
+char p(char *pole)		//Vyskyt zvolenej podsekvencie
 {
 	char *pismenko;
 	int pocet;
@@ -187,7 +187,7 @@ char p(char *pole)
 
 
 
-char h(char *pole)
+char h(char *pole)		//Vypis histogramu(pocet nukloidov)
 {
 	int a = 0, c = 0, g = 0, t = 0;
 	int i = strlen(pole);
@@ -208,7 +208,7 @@ char h(char *pole)
 	printf("T: %d\n", t);
 }
 
-char v(char *pole)
+char v(char *pole)		//Vypis sekvencie ktora sa nacitala || ktora bola poupravena
 {
 	int a, b;
 	scanf("%d %d", &a, &b);
@@ -222,7 +222,7 @@ char v(char *pole)
 	}
 }
 
-int n(char *pole)
+int n(char *pole)		//Nacitanie do dynamickeho pola, kde sa kontroluju Pismena ci sedia.
 {
 	int pomocna = 0;
 	char pismenko;
@@ -253,7 +253,7 @@ int n(char *pole)
 	return 0;
 }
 
-int main()
+int main()		//Main kde sa volaju vsetky funkcie
 {
 	char vstup;
 	char *pole;
