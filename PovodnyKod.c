@@ -33,8 +33,6 @@ char o(char *pole)
 		if (j == k + max)
 		{
 			printf("%c %d ", pole[k], k + 1);
-			//for (int a = k; a < k + max; a++)
-			//	printf("%c", pole[a]);
 			printf("\n");
 		}
 	}
@@ -148,7 +146,6 @@ char p(char *pole)
 					else
 						printf("%c", pole[k]);
 				}
-				//printf("%c", pole[k]);
 				if (k + 1 >= dlzka)
 					printf("-");
 				else
@@ -158,7 +155,7 @@ char p(char *pole)
 					else
 						printf("%c", pole[k + 1]);
 				}
-				//printf("%c", pole[k +1]);
+
 				if (k + 2 >= dlzka)
 					printf("-");
 				else
@@ -168,9 +165,9 @@ char p(char *pole)
 					else
 						printf("%c", pole[k + 2]);
 				}
-				//printf("%c", pole[k +2]);
+
 				printf("\n");
-				//printf("\n", temp,pole[i-5],pole[i-4],pole[i-3],pole[i-2],pole[i-1],pole[i], pole[i+1], pole[i+2]);
+
 
 			}
 			else
@@ -267,7 +264,6 @@ int main()
 		{
 			if (n(pole) == 0)
 				printf("Sekvenciu sa podarilo nacitat\n");
-			//printf("%s",pole);
 		}
 		else if (vstup == 'v')
 		{
