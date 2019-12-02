@@ -202,10 +202,7 @@ char Histogram(char *pole)		//Vypis histogramu(pocet nukloidov)
 		else if (pole[j] == 't' || pole[j] == 'T')
 			t++;
 	}
-	printf("A: %d\n", a);
-	printf("C: %d\n", c);
-	printf("G: %d\n", g);
-	printf("T: %d\n", t);
+	printf("A: %d\n C: %d\n G: %d\n T: %d\n", a,c,g,t);
 }
 
 char Vypis(char *pole)		//Vypis sekvencie ktora sa nacitala || ktora bola poupravena
