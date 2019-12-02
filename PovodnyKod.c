@@ -3,7 +3,7 @@
 #pragma warning(disable: 4996)
 
 
-char o(char *pole)		//Najdenie najdlhsich usekov opakujuceho sa jedneho nukleoidu		
+char OpakujucisaNukleoid(char *pole)		//Najdenie najdlhsich usekov opakujuceho sa jedneho nukleoidu		
 {
 	int pomocna = 1, max = 0;
 	for (int i = 0; i < strlen(pole) - 1; i++)
@@ -38,7 +38,7 @@ char o(char *pole)		//Najdenie najdlhsich usekov opakujuceho sa jedneho nukleoid
 	}
 }
 
-char l(char *pole)		//Vlozenie podsekvencie do originalnej DNA
+char VlozeniePodsekvencie(char *pole)		//Vlozenie podsekvencie do originalnej DNA
 {
 	char c[10000];
 	int p = 0, r = 0, i = 0;
@@ -73,7 +73,7 @@ char l(char *pole)		//Vlozenie podsekvencie do originalnej DNA
 
 	printf("%s", pole);
 }
-char p(char *pole)		//Vyskyt zvolenej podsekvencie
+char Podsekvencia(char *pole)		//Vyskyt zvolenej podsekvencie
 {
 	char *pismenko;
 	int pocet;
@@ -187,7 +187,7 @@ char p(char *pole)		//Vyskyt zvolenej podsekvencie
 
 
 
-char h(char *pole)		//Vypis histogramu(pocet nukloidov)
+char Histogram(char *pole)		//Vypis histogramu(pocet nukloidov)
 {
 	int a = 0, c = 0, g = 0, t = 0;
 	int i = strlen(pole);
@@ -208,7 +208,7 @@ char h(char *pole)		//Vypis histogramu(pocet nukloidov)
 	printf("T: %d\n", t);
 }
 
-char v(char *pole)		//Vypis sekvencie ktora sa nacitala || ktora bola poupravena
+char Vypis(char *pole)		//Vypis sekvencie ktora sa nacitala || ktora bola poupravena
 {
 	int a, b;
 	scanf("%d %d", &a, &b);
@@ -222,7 +222,7 @@ char v(char *pole)		//Vypis sekvencie ktora sa nacitala || ktora bola poupravena
 	}
 }
 
-int n(char *pole)		//Nacitanie do dynamickeho pola, kde sa kontroluju Pismena ci sedia.
+int Nacitanie(char *pole)		//Nacitanie do dynamickeho pola, kde sa kontroluju Pismena ci sedia.
 {
 	int pomocna = 0;
 	char pismenko;
@@ -262,24 +262,24 @@ int main()		//Main kde sa volaju vsetky funkcie
 	{
 		if (vstup == 'n')
 		{
-			if (n(pole) == 0)
+			if (Nacitanie(pole) == 0)
 				printf("Sekvenciu sa podarilo nacitat\n");
 		}
 		else if (vstup == 'v')
 		{
-			v(pole);
+			Vypis(pole);
 		}
 		else if (vstup == 'h')
 		{
-			h(pole);
+			Histogram(pole);
 		}
 		else if (vstup == 'p')
 		{
-			p(pole);
+			Podsekvencia(pole);
 		}
 		else if (vstup == 'l')
 		{
-			l(pole);
+			VlozeniePodsekvencie(pole);
 		}
 		else if (vstup == 'k')
 		{
@@ -288,7 +288,7 @@ int main()		//Main kde sa volaju vsetky funkcie
 		}
 		else if (vstup == 'o')
 		{
-			o(pole);
+			OpakujucisaNukleoid(pole);
 		}
 	}
 
