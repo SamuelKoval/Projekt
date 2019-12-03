@@ -1,1 +1,1 @@
-# Projekt kde sa budem snazit vylepsit(refaktorovat) svoj funkncy kod.
+# Projekt kde sa budem snazit vylepsit(refaktorovat) svoj funkcny kod.
