@@ -1,9 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #pragma warning(disable: 4996)
+/*
+Program, ktorı bude pracova s fragmentom DNA sekvencie, zapísanım v súbore DNAsekvencia.txt. 
+Tento súbor obsahuje písmená oznaèujúce nukleotidy z abecedy X = {A, C, G, T}, 
+prièom tieto môu by zapísané malımi alebo ve¾kımi písmenami. 
+Predpokladajte, e v súbore môe by zapísanı fragmet obsahujúci najviac 10 000 nukleotidov (znakov).
+Program bude vykonáva príkazy naèítané zo štandardného vstupu. Kadı príkaz bude predstavova vstup kde pri funkciach je kratky komentar
+, ktora funkcia co robi.
+*/
 
-
-char o(char *pole)
+char OpakujucisaNukleoid(char *pole)		//Najdenie najdlhsich usekov opakujuceho sa jedneho nukleoidu		
 {
 	int pomocna = 1, max = 0;
 	for (int i = 0; i < strlen(pole) - 1; i++)
@@ -33,49 +40,33 @@ char o(char *pole)
 		if (j == k + max)
 		{
 			printf("%c %d ", pole[k], k + 1);
-			//for (int a = k; a < k + max; a++)
-			//	printf("%c", pole[a]);
 			printf("\n");
 		}
 	}
 }
 
-char l(char *pole)
+char VlozeniePodsekvencie(char *pole)		//Vlozenie podsekvencie do originalnej DNA
 {
-	char c[10000];
-	int p = 0, r = 0, i = 0;
-	int t = 0;
-	int x, g, s, n, o;
-	char b[1000];
-	scanf("%s", &b);
-	scanf("%d", &p);
-	r = strlen(pole);
-	n = strlen(b);
-	i = 0;
+	sub[1000];
+	int position, length, c = 0;
 
-	while (i <= r)
-	{
-		c[i] = pole[i];
-		i++;
+	printf("Zadaj string\n");
+	gets(string);
+
+	printf("Zadaj poziciu a dlzku stringu\n");
+	scanf("%d%d", &position, &length);
+
+	while (c < length) {
+		sub[c] = string[position + c - 1];
+		c++;
 	}
-	s = n + r;
-	o = p + n;
+	sub[c] = '\0';
 
-	for (i = p; i < s; i++)
-	{
-		x = c[i];
-		if (t < n)
-		{
-			pole[i] = b[t];
-			t = t + 1;
-		}
-		pole[o] = x;
-		o = o + 1;
-	}
+	printf("Pozadovany retazec je: \"%s\"\n", sub);
 
-	printf("%s", pole);
+	return 0;
 }
-char p(char *pole)
+char Podsekvencia(char *pole)		//Vyskyt zvolenej podsekvencie
 {
 	char *pismenko;
 	int pocet;
@@ -148,7 +139,6 @@ char p(char *pole)
 					else
 						printf("%c", pole[k]);
 				}
-				//printf("%c", pole[k]);
 				if (k + 1 >= dlzka)
 					printf("-");
 				else
@@ -158,7 +148,7 @@ char p(char *pole)
 					else
 						printf("%c", pole[k + 1]);
 				}
-				//printf("%c", pole[k +1]);
+
 				if (k + 2 >= dlzka)
 					printf("-");
 				else
@@ -168,9 +158,9 @@ char p(char *pole)
 					else
 						printf("%c", pole[k + 2]);
 				}
-				//printf("%c", pole[k +2]);
+
 				printf("\n");
-				//printf("\n", temp,pole[i-5],pole[i-4],pole[i-3],pole[i-2],pole[i-1],pole[i], pole[i+1], pole[i+2]);
+
 
 			}
 			else
@@ -190,7 +180,7 @@ char p(char *pole)
 
 
 
-char h(char *pole)
+char Histogram(char *pole)		//Vypis histogramu(pocet nukloidov)
 {
 	int a = 0, c = 0, g = 0, t = 0;
 	int i = strlen(pole);
@@ -205,13 +195,10 @@ char h(char *pole)
 		else if (pole[j] == 't' || pole[j] == 'T')
 			t++;
 	}
-	printf("A: %d\n", a);
-	printf("C: %d\n", c);
-	printf("G: %d\n", g);
-	printf("T: %d\n", t);
+	printf("A: %d\n C: %d\n G: %d\n T: %d\n", a, c, g, t);
 }
 
-char v(char *pole)
+char Vypis(char *pole)		//Vypis sekvencie ktora sa nacitala || ktora bola poupravena
 {
 	int a, b;
 	scanf("%d %d", &a, &b);
@@ -225,7 +212,7 @@ char v(char *pole)
 	}
 }
 
-int n(char *pole)
+int Nacitanie(char *pole)		//Nacitanie do dynamickeho pola, kde sa kontroluju Pismena ci sedia.
 {
 	int pomocna = 0;
 	char pismenko;
@@ -256,44 +243,31 @@ int n(char *pole)
 	return 0;
 }
 
-int main()
+int main()		//Main kde sa volaju vsetky funkcie
 {
 	char vstup;
 	char *pole;
 	pole = (char*)malloc(10000 * sizeof(char));
 	while (scanf("%c", &vstup) > 0)
 	{
-		if (vstup == 'n')
-		{
-			if (n(pole) == 0)
-				printf("Sekvenciu sa podarilo nacitat\n");
-			//printf("%s",pole);
-		}
-		else if (vstup == 'v')
-		{
-			v(pole);
-		}
-		else if (vstup == 'h')
-		{
-			h(pole);
-		}
-		else if (vstup == 'p')
-		{
-			p(pole);
-		}
-		else if (vstup == 'l')
-		{
-			l(pole);
-		}
-		else if (vstup == 'k')
-		{
-			free(pole);
-			break;
-		}
-		else if (vstup == 'o')
-		{
-			o(pole);
-		}
+		switch (vstup)
+			case 'nacitanie':
+				if (Nacitanie(pole) == 0)
+					printf("Sekvenciu sa podarilo nacitat\n");
+			case 'vypis':
+				Vypis(pole);
+			case 'histogram':
+				Histogram(pole);
+			case 'podsekvencia':
+				Podsekvencia(pole);
+			case 'vlozpod':
+				VlozeniePodsekvencie(pole);
+			case 'koniec':
+				free(pole);
+				break;
+			case 'opakovanien':
+				OpakujucisaNukleoid(pole);
+
 	}
 
 	return 0;
