@@ -1,7 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #pragma warning(disable: 4996)
-
+/*
+Program, ktorı bude pracova s fragmentom DNA sekvencie, zapísanım v súbore DNAsekvencia.txt. 
+Tento súbor obsahuje písmená oznaèujúce nukleotidy z abecedy X = {A, C, G, T}, 
+prièom tieto môu by zapísané malımi alebo ve¾kımi písmenami. 
+Predpokladajte, e v súbore môe by zapísanı fragmet obsahujúci najviac 10 000 nukleotidov (znakov).
+Program bude vykonáva príkazy naèítané zo štandardného vstupu. Kadı príkaz bude predstavova vstup kde pri funkciach je kratky komentar
+, ktora funkcia co robi.
+*/
 
 char OpakujucisaNukleoid(char *pole)		//Najdenie najdlhsich usekov opakujuceho sa jedneho nukleoidu		
 {
@@ -55,7 +62,7 @@ char VlozeniePodsekvencie(char *pole)		//Vlozenie podsekvencie do originalnej DN
 	}
 	sub[c] = '\0';
 
-	printf("Pozadovany retazec je: \"%s\"\n", sub); 
+	printf("Pozadovany retazec je: \"%s\"\n", sub);
 
 	return 0;
 }
@@ -188,7 +195,7 @@ char Histogram(char *pole)		//Vypis histogramu(pocet nukloidov)
 		else if (pole[j] == 't' || pole[j] == 'T')
 			t++;
 	}
-	printf("A: %d\n C: %d\n G: %d\n T: %d\n", a,c,g,t);
+	printf("A: %d\n C: %d\n G: %d\n T: %d\n", a, c, g, t);
 }
 
 char Vypis(char *pole)		//Vypis sekvencie ktora sa nacitala || ktora bola poupravena
