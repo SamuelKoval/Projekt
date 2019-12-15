@@ -257,33 +257,33 @@ int main()		//Main kde sa volaju vsetky funkcie
 	pole = (char*)malloc(10000 * sizeof(char));
 	while (scanf("%c", &vstup) > 0)
 	{
-		if (vstup == 'n')
+		if (vstup == 'nacitanie')
 		{
 			if (Nacitanie(pole) == 0)
 				printf("Sekvenciu sa podarilo nacitat\n");
 		}
-		else if (vstup == 'v')
+		else if (vstup == 'vstup')
 		{
 			Vypis(pole);
 		}
-		else if (vstup == 'h')
+		else if (vstup == 'histogram')
 		{
 			Histogram(pole);
 		}
-		else if (vstup == 'p')
+		else if (vstup == 'podsekvencia')
 		{
 			Podsekvencia(pole);
 		}
-		else if (vstup == 'l')
+		else if (vstup == 'vlozpod')
 		{
 			VlozeniePodsekvencie(pole);
 		}
-		else if (vstup == 'k')
+		else if (vstup == 'koniec')
 		{
 			free(pole);
 			break;
 		}
-		else if (vstup == 'o')
+		else if (vstup == 'opakovanien')
 		{
 			OpakujucisaNukleoid(pole);
 		}
