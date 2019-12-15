@@ -55,7 +55,7 @@ char VlozeniePodsekvencie(char *pole)		//Vlozenie podsekvencie do originalnej DN
 	}
 	sub[c] = '\0';
 
-	printf("Required substring is \"%s\"\n", sub); 
+	printf("Pozadovany retazec je: \"%s\"\n", sub); 
 
 	return 0;
 }
@@ -243,36 +243,24 @@ int main()		//Main kde sa volaju vsetky funkcie
 	pole = (char*)malloc(10000 * sizeof(char));
 	while (scanf("%c", &vstup) > 0)
 	{
-		if (vstup == 'nacitanie')
-		{
-			if (Nacitanie(pole) == 0)
-				printf("Sekvenciu sa podarilo nacitat\n");
-		}
-		else if (vstup == 'vstup')
-		{
-			Vypis(pole);
-		}
-		else if (vstup == 'histogram')
-		{
-			Histogram(pole);
-		}
-		else if (vstup == 'podsekvencia')
-		{
-			Podsekvencia(pole);
-		}
-		else if (vstup == 'vlozpod')
-		{
-			VlozeniePodsekvencie(pole);
-		}
-		else if (vstup == 'koniec')
-		{
-			free(pole);
-			break;
-		}
-		else if (vstup == 'opakovanien')
-		{
-			OpakujucisaNukleoid(pole);
-		}
+		switch (vstup)
+			case 'nacitanie':
+				if (Nacitanie(pole) == 0)
+					printf("Sekvenciu sa podarilo nacitat\n");
+			case 'vypis':
+				Vypis(pole);
+			case 'histogram':
+				Histogram(pole);
+			case 'podsekvencia':
+				Podsekvencia(pole);
+			case 'vlozpod':
+				VlozeniePodsekvencie(pole);
+			case 'koniec':
+				free(pole);
+				break;
+			case 'opakovanien':
+				OpakujucisaNukleoid(pole);
+
 	}
 
 	return 0;
