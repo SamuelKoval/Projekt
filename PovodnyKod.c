@@ -40,38 +40,24 @@ char OpakujucisaNukleoid(char *pole)		//Najdenie najdlhsich usekov opakujuceho s
 
 char VlozeniePodsekvencie(char *pole)		//Vlozenie podsekvencie do originalnej DNA
 {
-	char c[10000];
-	int p = 0, r = 0, i = 0;
-	int t = 0;
-	int x, g, s, n, o;
-	char b[1000];
-	scanf("%s", &b);
-	scanf("%d", &p);
-	r = strlen(pole);
-	n = strlen(b);
-	i = 0;
+	sub[1000];
+	int position, length, c = 0;
 
-	while (i <= r)
-	{
-		c[i] = pole[i];
-		i++;
+	printf("Zadaj string\n");
+	gets(string);
+
+	printf("Zadaj poziciu a dlzku stringu\n");
+	scanf("%d%d", &position, &length);
+
+	while (c < length) {
+		sub[c] = string[position + c - 1];
+		c++;
 	}
-	s = n + r;
-	o = p + n;
+	sub[c] = '\0';
 
-	for (i = p; i < s; i++)
-	{
-		x = c[i];
-		if (t < n)
-		{
-			pole[i] = b[t];
-			t = t + 1;
-		}
-		pole[o] = x;
-		o = o + 1;
-	}
+	printf("Required substring is \"%s\"\n", sub); 
 
-	printf("%s", pole);
+	return 0;
 }
 char Podsekvencia(char *pole)		//Vyskyt zvolenej podsekvencie
 {
